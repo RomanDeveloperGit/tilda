@@ -1,3 +1,5 @@
+const API_URL = "https://store.tildacdn.com/api/tgetproduct/";
+
 const elements = {
 	loading: document.querySelector( ".product-page__loading" ),
 	productsBasketCount: document.querySelector( ".product-page__basket-counter" ),
@@ -13,8 +15,6 @@ const elements = {
 	productQuantityCount: document.querySelector( ".product-item__quantity-count" ),
 	productBasketButton: document.querySelector( ".product-item__basket-button" )
 };
-
-const API_URL = "https://store.tildacdn.com/api/tgetproduct/";
 
 let productsBasketCount = 0;
 const product = {
@@ -77,7 +77,13 @@ const setProductData = ( title, description, currentPrice, oldPrice, quantityCou
 
 	setCurrentImageIndex( 0 );
 
-	// Если осталось 0 товара, то кнопку в disabled бросаем.
+	elements.productTitle.innerHTML = title;
+	elements.productDescription.innerHTML = description;
+	elements.productCurrentPrice.innerHTML = `$${currentPrice}`;
+	elements.productOldPrice.innerHTML = `$${oldPrice}`;
+	elements.productQuantityCount.innerHTML = quantityCount;
+
+	elements.productBasketButton.disabled = !quantityCount;
 };
 
 const initProductPage = async() => {
@@ -88,7 +94,7 @@ const initProductPage = async() => {
 		const data = await response.json();
 
 		setProductsBasket( 0 );
-		setProductData( data.title, data.descr, data.price, data.oldprice, data.quantity, JSON.parse( data.images ) );
+		setProductData( data.title, data.descr, data.price, data.priceold, data.quantity, JSON.parse( data.images ) );
 	}
 	catch (error) {
 		console.error( error );
@@ -113,7 +119,7 @@ elements.productBasketButton.onclick = () => {
 		elements.productBasketButton.classList.remove( "product-item__basket-button_active" );
 	}
 
-	elements.productBasketButton.innerHTML = product.isInBasket ? "Добавлен в корзину" : "В корзину";
+	elements.productBasketButton.innerHTML = product.isInBasket ? "Added to basket" : "Add to basket";
 };
 
 initProductPage();
