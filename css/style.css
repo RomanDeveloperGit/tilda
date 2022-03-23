@@ -63,6 +63,10 @@ body {
 	border-radius: 50%;
 }
 
+.product-page__loading {
+	font-size: 18px;
+}
+
 .product-item {
 	max-width: 350px;
 
