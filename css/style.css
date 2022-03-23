@@ -65,6 +65,8 @@ body {
 
 .product-page__loading {
 	font-size: 18px;
+	
+	display: none;
 }
 
 .product-item {
