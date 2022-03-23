@@ -28,6 +28,8 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	margin-bottom: 50px;
 }
 
 .product-page__title {
@@ -35,8 +37,14 @@ body {
 	font-family: 'Rubik', sans-serif;
 }
 
-.product-page__basket-box {
+.product-page__basket-link {
 	position: relative;
+
+	transition: .5s;
+}
+
+.product-page__basket-link:hover {
+	opacity: 0.75;
 }
 
 .product-page__basket-counter {
@@ -55,10 +63,144 @@ body {
 	border-radius: 50%;
 }
 
+.product-item {
+	max-width: 350px;
+
+	background: #1D2125;
+	border-radius: 15px;
+
+	padding: 24px 24px 30px 24px;
+}
+
+.product-item__img-box {
+	width: 100%;
+}
+
+.product-item__top-box {
+	position: relative;
+	width: 100%;
+
+	margin-bottom: 30px;
+}
+
 .product-item__img {
+	width: 100%;
+	border-radius: 15px;
+
 	display: none;
 }
 
 .product-item__img_active {
 	display: block;
+}
+
+.product-item__arrow-button {
+	position: absolute;
+	top: 50%;
+
+	width: 30px;
+	height: 30px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color: var(--accent-color);
+	border-radius: 50%;
+
+	transition: .5s;
+}
+
+.product-item__arrow-button:hover {
+	background-color: var(--accent-active-color);
+}
+
+.product-item__arrow-button_prev {
+	left: 0;
+
+	transform: translate(-50%, -50%);
+}
+
+.produt-item__arrow-icon_prev {
+	transform: rotate(180deg);
+}
+
+.product-item__arrow-button_next {
+	right: 0;
+
+	transform: translate(50%, -50%);
+}
+
+.product-item__content-box {
+	margin-bottom: 30px;
+}
+
+.product-item__content-top {
+	margin-bottom: 20px;
+}
+
+.product-item__title {
+	font-size: 20px;
+	font-weight: 600;
+
+	margin-bottom: 10px;
+}
+
+.product-item__description {
+	color: rgba(255, 255, 255, 0.7);
+
+	line-height: 1.24;
+}
+
+.product-item__content-bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.product-item__price-box {
+	display: flex;
+	align-items: center;
+
+	font-weight: 700;
+	
+	column-gap: 10px;
+}
+
+.product-item__current-price {
+	font-size: 20px;
+	color: var(--accent-color);
+}
+
+.product-item__old-price {
+	position: relative;
+
+	opacity: 0.7;
+}
+
+.product-item__old-price::after {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 6px;
+	
+	transform: rotate(-12deg);
+
+	height: 2px;
+
+	content: "";
+	background-color: var(--accent-color);
+}
+
+.product-item__quantity-box {
+	font-weight: 500;
+}
+
+.product-item__basket-button {
+	width: 100%;
+
+	background-color: var(--accent-color);
+	border-radius: 25px;
+
+	padding: 14px 0;
 }
