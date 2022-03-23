@@ -42,12 +42,18 @@ const setProductsBasket = newCount => {
 };
 
 const setCurrentImageIndex = newIndex => {
+	const images = document.querySelectorAll( ".product-item__img" );
 	const maxImageIndex = productData.images.length - 1;
 
 	if (newIndex < 0) newIndex = maxImageIndex;
 	else if (newIndex > maxImageIndex) newIndex = 0;
 
 	productData.currentImageIndex = newIndex;
+
+	images.forEach( ( image, index ) => {
+		if (index === newIndex) image.classList.add( "product-item__img_active" );
+		else image.classList.remove( "product-item__img_active" );
+	});
 };
 
 const setProductData = ( title, description, currentPrice, oldPrice, quantityCount, images ) => {
@@ -56,11 +62,16 @@ const setProductData = ( title, description, currentPrice, oldPrice, quantityCou
 	productData.currentPrice = currentPrice;
 	productData.oldPrice = oldPrice;
 	productData.quantityCount = quantityCount;
-	productData.images = images.map( obj => obj.img );
+	productData.images = images.map( obj => {
+		const imgURL = obj.img;
+		elements.productImageBox.insertAdjacentHTML( "beforeend", `<img class="product-item__img" src=${imgURL} alt="Product">` );
 
-	// Если осталось 0 товара, то кнопку в disabled бросаем.
+		return imgURL;
+	});
 
 	setCurrentImageIndex( 0 );
+
+	// Если осталось 0 товара, то кнопку в disabled бросаем.
 };
 
 const initProductPage = async() => {
