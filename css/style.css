@@ -19,5 +19,46 @@ body {
 	margin: 0 auto;
 }
 
-/* font-family: 'Inter', sans-serif;
-font-family: 'Rubik', sans-serif; */
+
+.product-page {
+	padding: 70px 0;
+}
+
+.product-page__top-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.product-page__title {
+	font-size: 30px;
+	font-family: 'Rubik', sans-serif;
+}
+
+.product-page__basket-box {
+	position: relative;
+}
+
+.product-page__basket-counter {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+
+	width: 22px;
+	height: 22px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color: var(--accent-color);
+	border-radius: 50%;
+}
+
+.product-item__img {
+	display: none;
+}
+
+.product-item__img_active {
+	display: block;
+}
