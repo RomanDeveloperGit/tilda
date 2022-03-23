@@ -1,0 +1,23 @@
+body {
+	font-size: 14px;
+	font-family: "Inter", sans-serif;
+	
+	color: #ffffff;
+	background-color: #121619;
+}
+
+:root {
+	--accent-color: #32B290;
+	--accent-active-color: #2C8D75;
+}
+
+
+.container {
+	max-width: 1140px;
+	
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+/* font-family: 'Inter', sans-serif;
+font-family: 'Rubik', sans-serif; */
